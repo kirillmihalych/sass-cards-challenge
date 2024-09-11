@@ -1,0 +1,165 @@
+@use 'reset';
+
+// Placeholders
+
+%shadow {
+  box-shadow: 0.25rem 0.25rem 1rem rgb(0 0 0 / 0.15);
+}
+
+// colors
+$color-primary-400: #0c2447;
+$color-secondary-400: #b31b22;
+
+// font families
+$ff-sans: 'Roboto', sans-serif;
+
+// font weights
+$fw-regular: 400;
+$fw-bold: 700;
+$fw-black: 900;
+
+// rounded
+$rounded: 2rem;
+
+// sizes
+$size-8: 0.5rem;
+$size-12: 0.75rem;
+$size-16: 1rem;
+$size-32: 2rem;
+$size-36: 3rem;
+
+// reset basics
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: $ff-sans;
+  font-weight: $fw-regular;
+}
+
+// utilities
+.fs-xl {
+  font-size: 3rem;
+}
+
+.fw-semibold {
+  font-weight: 700;
+}
+
+.fw-dark {
+  font-weight: 900;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.primary-400 {
+  color: $color-primary-400;
+}
+
+.margin-block-xl {
+  margin-block: 3rem;
+}
+
+// layout
+.container {
+  width: min(100% - 2rem, 58rem);
+  margin-inline: auto;
+}
+
+.card-list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--gap, 1rem);
+}
+
+// card
+.card {
+  overflow: hidden;
+  border-radius: $rounded;
+  background-color: #fff;
+  @extend %shadow;
+
+  &__image-wrapper {
+    &--category-img {
+      img {
+        object-fit: cover;
+        object-position: top center;
+        height: 8.75rem;
+        width: 100%;
+      }
+    }
+  }
+
+  &__category {
+    color: $color-secondary-400;
+  }
+
+  &__category-size-m {
+    padding: $size-12;
+    text-align: center;
+    color: $color-secondary-400;
+  }
+
+  &__content {
+    position: relative;
+    padding: $size-32 $size-16 $size-16;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+    }
+  }
+
+  &__name {
+    font-weight: $fw-black;
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: $color-primary-400;
+  }
+
+  &__price {
+    font-weight: 700;
+    color: $color-primary-400;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    background: pink;
+    padding: 1rem;
+    border-radius: 50%;
+    transform: translateY(-50%);
+
+    img {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $color-secondary-400;
+    }
+  }
+}
+
+// btn
+.btn {
+  border: 0;
+}
